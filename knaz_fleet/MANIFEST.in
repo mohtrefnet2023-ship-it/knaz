@@ -1,3 +1,0 @@
-include README.md
-include license.txt
-recursive-include knaz_fleet *.json *.py *.js *.css *.html *.md

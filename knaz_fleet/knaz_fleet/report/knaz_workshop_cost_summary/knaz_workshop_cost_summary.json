@@ -1,9 +1,0 @@
-{
-  "doctype": "Report",
-  "name": "Knaz Workshop Cost Summary",
-  "ref_doctype": "Knaz Workshop Order",
-  "module": "Knaz Fleet",
-  "report_type": "Script Report",
-  "is_standard": "Yes",
-  "disabled": 0
-}
