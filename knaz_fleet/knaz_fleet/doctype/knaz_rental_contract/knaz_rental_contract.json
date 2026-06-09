@@ -1,0 +1,205 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Rental Contract",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 1,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldtype": "Section Break",
+      "label": "بيانات العقد"
+    },
+    {
+      "fieldname": "contract_no",
+      "label": "رقم العقد",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "customer",
+      "label": "العميل",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "vehicle",
+      "label": "السيارة",
+      "fieldtype": "Link",
+      "options": "Knaz Vehicle",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "branch",
+      "label": "الفرع",
+      "fieldtype": "Link",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "status",
+      "label": "حالة العقد",
+      "fieldtype": "Select",
+      "options": "Draft\nActive\nCompleted\nOverdue\nCancelled\nLegal",
+      "default": "Draft",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "sales_invoice",
+      "label": "فاتورة المبيعات",
+      "fieldtype": "Link",
+      "options": "Sales Invoice",
+      "read_only": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "الفترة والمبالغ"
+    },
+    {
+      "fieldname": "start_date",
+      "label": "تاريخ البداية",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "end_date",
+      "label": "تاريخ النهاية",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "daily_rate",
+      "label": "السعر اليومي",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_amount",
+      "label": "إجمالي العقد",
+      "fieldtype": "Currency",
+      "reqd": 1,
+      "default": 0,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "paid_amount",
+      "label": "المدفوع",
+      "fieldtype": "Currency",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "label": "المتبقي",
+      "fieldtype": "Currency",
+      "default": 0,
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "return_odometer",
+      "label": "عداد الإرجاع",
+      "fieldtype": "Float",
+      "allow_on_submit": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "مرفقات وملاحظات"
+    },
+    {
+      "fieldname": "contract_attachment",
+      "label": "مرفق العقد",
+      "fieldtype": "Attach"
+    },
+    {
+      "fieldname": "notes",
+      "label": "ملاحظات",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 0
+    },
+    {
+      "role": "Knaz Accountant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Collection Officer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-RC-.#####",
+  "title_field": "contract_no",
+  "search_fields": "contract_no,customer,vehicle"
+}

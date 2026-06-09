@@ -1,0 +1,208 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Vehicle Accident",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldtype": "Section Break",
+      "label": "بيانات الحادث"
+    },
+    {
+      "fieldname": "vehicle",
+      "label": "السيارة",
+      "fieldtype": "Link",
+      "options": "Knaz Vehicle",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "customer",
+      "label": "العميل",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "driver_name",
+      "label": "اسم السائق",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "accident_date",
+      "label": "تاريخ الحادث",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "accident_time",
+      "label": "وقت الحادث",
+      "fieldtype": "Time"
+    },
+    {
+      "fieldname": "location",
+      "label": "الموقع",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "status",
+      "label": "الحالة",
+      "fieldtype": "Select",
+      "options": "New Accident\nMissing Documents\nDocuments Completed\nInsurance Claim Opened\nUnder Repair\nLegal\nClosed",
+      "default": "New Accident",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "التفاصيل"
+    },
+    {
+      "fieldname": "accident_description",
+      "label": "وصف الحادث",
+      "fieldtype": "Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fault_percentage",
+      "label": "نسبة الخطأ",
+      "fieldtype": "Percent"
+    },
+    {
+      "fieldname": "report_no",
+      "label": "رقم تقرير المرور / نجم",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "authority",
+      "label": "الجهة المباشرة",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "الروابط"
+    },
+    {
+      "fieldname": "insurance_claim",
+      "label": "مطالبة التأمين",
+      "fieldtype": "Link",
+      "options": "Knaz Insurance Claim",
+      "read_only": 1
+    },
+    {
+      "fieldname": "workshop_order",
+      "label": "أمر الصيانة",
+      "fieldtype": "Link",
+      "options": "Knaz Workshop Order",
+      "read_only": 1
+    },
+    {
+      "fieldname": "legal_case",
+      "label": "القضية",
+      "fieldtype": "Link",
+      "options": "Knaz Legal Case",
+      "read_only": 1
+    },
+    {
+      "fieldname": "responsible_employee",
+      "label": "الموظف المسؤول",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "attachments",
+      "label": "مرفقات",
+      "fieldtype": "Attach"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    },
+    {
+      "role": "Knaz Insurance Officer",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Accountant",
+      "read": 1,
+      "write": 1,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 0
+    },
+    {
+      "role": "Knaz Legal Officer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-ACC-.#####",
+  "title_field": "vehicle",
+  "search_fields": "vehicle,customer,report_no,status"
+}

@@ -1,0 +1,97 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz System Alert Rule",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldname": "alert_type",
+      "label": "نوع التنبيه",
+      "fieldtype": "Select",
+      "options": "Vehicle Insurance Expiry\nVehicle Registration Expiry\nVehicle Inspection Expiry\nFinance Installment Due\nLegal Session Due\nLow Stock\nOverdue Task\nOverdue Collection",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "days_before",
+      "label": "عدد الأيام قبل الحدث",
+      "fieldtype": "Int",
+      "default": 7,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "target_role",
+      "label": "الدور المستهدف",
+      "fieldtype": "Link",
+      "options": "Role",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "target_user",
+      "label": "مستخدم محدد",
+      "fieldtype": "Link",
+      "options": "User"
+    },
+    {
+      "fieldname": "message_template",
+      "label": "نص الرسالة",
+      "fieldtype": "Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "active",
+      "label": "فعال",
+      "fieldtype": "Check",
+      "default": 1,
+      "in_list_view": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-AR-.#####",
+  "title_field": "alert_type"
+}

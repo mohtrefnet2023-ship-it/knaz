@@ -1,0 +1,9 @@
+{
+  "doctype": "Report",
+  "name": "Knaz Vehicle Status Summary",
+  "ref_doctype": "Knaz Vehicle",
+  "module": "Knaz Fleet",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "disabled": 0
+}

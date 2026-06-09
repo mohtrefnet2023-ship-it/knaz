@@ -1,0 +1,103 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Approval Matrix",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldname": "approval_type",
+      "label": "نوع الاعتماد",
+      "fieldtype": "Select",
+      "options": "Technician Request\nPurchase Request\nMaintenance Cost\nExternal Workshop\nLegal Escalation\nSettlement\nClaim Closure",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "department",
+      "label": "القسم",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "min_amount",
+      "label": "أقل مبلغ",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldname": "max_amount",
+      "label": "أعلى مبلغ",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldname": "approver_role",
+      "label": "الدور المعتمد",
+      "fieldtype": "Link",
+      "options": "Role",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "approver_user",
+      "label": "مستخدم معتمد",
+      "fieldtype": "Link",
+      "options": "User"
+    },
+    {
+      "fieldname": "active",
+      "label": "فعال",
+      "fieldtype": "Check",
+      "default": 1,
+      "in_list_view": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-AM-.#####",
+  "title_field": "approval_type"
+}

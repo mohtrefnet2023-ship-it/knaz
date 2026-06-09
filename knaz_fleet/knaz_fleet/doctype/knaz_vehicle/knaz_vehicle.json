@@ -1,0 +1,258 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Vehicle",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldtype": "Section Break",
+      "label": "بيانات السيارة"
+    },
+    {
+      "fieldname": "plate_no",
+      "label": "رقم اللوحة",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "chassis_no",
+      "label": "رقم الهيكل",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "make",
+      "label": "الشركة المصنعة",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "model",
+      "label": "الموديل",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "model_year",
+      "label": "سنة الصنع",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "color",
+      "label": "اللون",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "الحالة والتشغيل"
+    },
+    {
+      "fieldname": "branch",
+      "label": "الفرع",
+      "fieldtype": "Link",
+      "options": "Branch",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "current_status",
+      "label": "حالة السيارة",
+      "fieldtype": "Select",
+      "options": "Available\nReserved\nRented\nIn Workshop\nUnder Maintenance\nAccident\nInsurance Claim\nStopped\nSold\nInactive",
+      "reqd": 1,
+      "default": "Available",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "odometer",
+      "label": "قراءة العداد",
+      "fieldtype": "Float",
+      "default": 0,
+      "in_list_view": 1
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "ownership_type",
+      "label": "نوع الملكية",
+      "fieldtype": "Select",
+      "options": "Owned\nFinanced\nLeased",
+      "default": "Owned"
+    },
+    {
+      "fieldname": "current_customer",
+      "label": "العميل الحالي",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "current_contract",
+      "label": "العقد الحالي",
+      "fieldtype": "Link",
+      "options": "Knaz Rental Contract",
+      "read_only": 1
+    },
+    {
+      "fieldname": "finance_contract",
+      "label": "عقد التمويل",
+      "fieldtype": "Link",
+      "options": "Knaz Vehicle Finance Contract",
+      "read_only": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "الوثائق والتنبيهات"
+    },
+    {
+      "fieldname": "insurance_company",
+      "label": "شركة التأمين",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "insurance_expiry_date",
+      "label": "انتهاء التأمين",
+      "fieldtype": "Date",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "registration_expiry_date",
+      "label": "انتهاء الاستمارة",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "inspection_expiry_date",
+      "label": "انتهاء الفحص",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "ملاحظات"
+    },
+    {
+      "fieldname": "notes",
+      "label": "ملاحظات",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Accountant",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Workshop Supervisor",
+      "read": 1,
+      "write": 1,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    },
+    {
+      "role": "Knaz Store Keeper",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    },
+    {
+      "role": "Knaz Insurance Officer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    },
+    {
+      "role": "Knaz Legal Officer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-VEH-.#####",
+  "title_field": "plate_no",
+  "search_fields": "plate_no,chassis_no,make,model"
+}
