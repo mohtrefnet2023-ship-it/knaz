@@ -1,0 +1,171 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Vehicle Finance Contract",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 1,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldtype": "Section Break",
+      "label": "بيانات التمويل"
+    },
+    {
+      "fieldname": "vehicle",
+      "label": "السيارة",
+      "fieldtype": "Link",
+      "options": "Knaz Vehicle",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "finance_company",
+      "label": "جهة التمويل",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "finance_contract_no",
+      "label": "رقم عقد التمويل",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "الحالة",
+      "fieldtype": "Select",
+      "options": "Active\nCompleted\nOverdue\nCancelled",
+      "default": "Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "المبالغ والفترة"
+    },
+    {
+      "fieldname": "total_finance_amount",
+      "label": "مبلغ التمويل",
+      "fieldtype": "Currency",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "down_payment",
+      "label": "الدفعة المقدمة",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldname": "installment_amount",
+      "label": "قيمة القسط",
+      "fieldtype": "Currency",
+      "reqd": 1
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "number_of_installments",
+      "label": "عدد الأقساط",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "start_date",
+      "label": "تاريخ البداية",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "end_date",
+      "label": "تاريخ النهاية",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "ملخص السداد"
+    },
+    {
+      "fieldname": "paid_amount",
+      "label": "إجمالي المدفوع",
+      "fieldtype": "Currency",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "label": "المتبقي",
+      "fieldtype": "Currency",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "ملاحظات",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Accountant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Operations Manager",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-FC-.#####",
+  "title_field": "finance_contract_no",
+  "search_fields": "vehicle,finance_company,finance_contract_no"
+}

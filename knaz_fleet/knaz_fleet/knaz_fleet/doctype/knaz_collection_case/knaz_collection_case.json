@@ -1,0 +1,214 @@
+{
+  "doctype": "DocType",
+  "name": "Knaz Collection Case",
+  "module": "Knaz Fleet",
+  "custom": 0,
+  "is_virtual": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "fields": [
+    {
+      "fieldtype": "Section Break",
+      "label": "بيانات التحصيل"
+    },
+    {
+      "fieldname": "customer",
+      "label": "العميل",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "rental_contract",
+      "label": "عقد التأجير",
+      "fieldtype": "Link",
+      "options": "Knaz Rental Contract",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "vehicle",
+      "label": "السيارة",
+      "fieldtype": "Link",
+      "options": "Knaz Vehicle",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sales_invoice",
+      "label": "فاتورة المبيعات",
+      "fieldtype": "Link",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "collector",
+      "label": "موظف التحصيل",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "الحالة",
+      "fieldtype": "Select",
+      "options": "Due\nContacted\nPromise to Pay\nPromise Broken\nFirst Warning\nFinal Warning\nEscalated\nLegal\nCollected\nClosed",
+      "default": "Due",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "risk_level",
+      "label": "مستوى الخطورة",
+      "fieldtype": "Select",
+      "options": "Low\nMedium\nHigh\nLegal\nBlocked",
+      "default": "Medium",
+      "in_list_view": 1
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "المبالغ"
+    },
+    {
+      "fieldname": "due_date",
+      "label": "تاريخ الاستحقاق",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "due_amount",
+      "label": "المبلغ المستحق",
+      "fieldtype": "Currency",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "paid_amount",
+      "label": "المدفوع",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "label": "المتبقي",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "delay_days",
+      "label": "أيام التأخير",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "promise_date",
+      "label": "تاريخ وعد السداد",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "promise_amount",
+      "label": "مبلغ وعد السداد",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "التصعيد"
+    },
+    {
+      "fieldname": "escalation_reason",
+      "label": "سبب التصعيد",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "legal_case",
+      "label": "قضية مرتبطة",
+      "fieldtype": "Link",
+      "options": "Knaz Legal Case",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "ملاحظات",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz General Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Accountant",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Collection Officer",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 1,
+      "report": 1
+    },
+    {
+      "role": "Knaz Legal Officer",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "export": 0,
+      "report": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "autoname": "format:KNZ-COL-.#####",
+  "title_field": "customer",
+  "search_fields": "customer,rental_contract,vehicle,status"
+}
